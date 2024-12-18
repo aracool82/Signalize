@@ -29,10 +29,7 @@ public class AlarmSystem : MonoBehaviour
     private void StartCoroutine(float volume)
     {
         if (_coroutine != null)
-        {
             StopCoroutine(_coroutine);
-            _coroutine = null;
-        }
 
         _coroutine = StartCoroutine(ChangeVolume(volume));
     }
