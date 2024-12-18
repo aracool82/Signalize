@@ -16,17 +16,17 @@ public class AlarmSystem : MonoBehaviour
         if (!collider.TryGetComponent(out Thief thief))
             return;
         
-        StartCoroutine(MaxVolume);
+        StartChangeVolume(MaxVolume);
         _audio.Play();
     }
     
     private void OnTriggerExit(Collider collider)
     {
         if (collider.TryGetComponent(out Thief thief))
-            StartCoroutine(MinVolume);
+            StartChangeVolume(MinVolume);
     }
 
-    private void StartCoroutine(float volume)
+    private void StartChangeVolume(float volume)
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
